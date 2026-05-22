@@ -1,6 +1,5 @@
 import React from 'react'
 import '../../index.css'
-import Header from '../../components/Header/Header'
 import EventsHero from '../../components/EventsHero/EventsHero'
 import FeaturedEvents from '../../components/FeaturedEvents/FeaturedEvents'
 import GuestResidences from '../../components/GuestResidences/GuestResidences'
@@ -11,15 +10,14 @@ import EventsFooter from '../../components/EventsFooter/EventsFooter'
 const Events = () => {
   return (
     <div className="events-page">
-      <Header />
       <main>
         <EventsHero />
         <FeaturedEvents />
         <GuestResidences />
         <Curators />
         <Partners />
+        <EventsFooter />
       </main>
-      <EventsFooter />
     </div>
   )
 }
