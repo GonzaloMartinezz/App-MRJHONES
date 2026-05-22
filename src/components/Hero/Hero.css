@@ -1,0 +1,204 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--black);
+}
+
+/* Background layers */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(20, 10, 0, 0.4) 0%, rgba(10, 10, 10, 0.85) 70%, var(--black) 100%);
+  z-index: 2;
+}
+
+.hero__spotlight {
+  position: absolute;
+  bottom: 0;
+  width: 2px;
+  height: 70%;
+  transform-origin: bottom center;
+  filter: blur(2px);
+  z-index: 1;
+}
+
+.hero__spotlight--left {
+  left: 30%;
+  background: linear-gradient(to top, rgba(201, 168, 76, 0.12) 0%, transparent 100%);
+  transform: rotate(-18deg);
+}
+
+.hero__spotlight--right {
+  right: 30%;
+  background: linear-gradient(to top, rgba(201, 168, 76, 0.12) 0%, transparent 100%);
+  transform: rotate(18deg);
+}
+
+.hero__spotlight--center {
+  left: 50%;
+  width: 200px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 100% 50% at 50% 100%, rgba(201, 168, 76, 0.08) 0%, transparent 100%);
+  filter: none;
+}
+
+/* Simulated stage floor glow */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 200px;
+  background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(201, 168, 76, 0.06) 0%, transparent 100%);
+  z-index: 1;
+}
+
+/* Content */
+.hero__content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 720px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Badge */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white-muted);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: inline-block;
+}
+
+/* Title */
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.hero__title-em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Subtitle */
+.hero__subtitle {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--white-muted);
+  max-width: 520px;
+}
+
+/* Action buttons */
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 32px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.hero__btn--primary {
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+
+.hero__btn--primary:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.hero__btn--secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white-muted);
+}
+
+.hero__btn--secondary:hover {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: scrollBounce 2.4s ease-in-out infinite;
+}
+
+.hero__scroll-label {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+@media (max-width: 600px) {
+  .hero__subtitle br { display: none; }
+  .hero__actions { flex-direction: column; width: 100%; }
+  .hero__btn { width: 100%; justify-content: center; }
+}
