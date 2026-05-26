@@ -3,9 +3,10 @@ import { NavLink, Link } from 'react-router-dom'
 import '../../index.css'
 
 const navItems = [
-  { label: 'Home', to: '/' },
-  { label: 'Events', to: '/events' },
-  { label: 'VIP Experience', to: '/vip' },
+  { label: 'Inicio', to: '/' },
+  { label: 'Eventos', to: '/events' },
+  { label: 'Experiencia VIP', to: '/vip' },
+  { label: 'Contacto', to: '/contact' },
 ]
 
 const Header = () => {
@@ -25,18 +26,18 @@ const Header = () => {
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="header__inner">
-        <Link to="/" className="header__logo">
-          <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+        <Link to="/" className="header__logo" onClick={() => setMenuOpen(false)}>
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="15" stroke="#c9a84c" strokeWidth="1.5" />
             <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle"
-              fontSize="10" fill="#c9a84c" fontFamily="Playfair Display" fontStyle="italic">
+              fontSize="12" fill="#c9a84c" fontFamily="Playfair Display" fontStyle="italic" fontWeight="700">
               MJ
             </text>
           </svg>
-          <span className="header__logo-text">Mr. Johns &amp; Warhol</span>
+          <span className="header__logo-text">MR JHONES</span>
         </Link>
 
-        <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`} aria-label="Primary navigation">
+        <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`} aria-label="Navegación principal">
           <ul className="header__nav-list">
             {navItems.map(({ label, to }) => (
               <li key={label}>
@@ -52,28 +53,25 @@ const Header = () => {
                 </NavLink>
               </li>
             ))}
+            {/* Elemento de reservas en menú móvil */}
+            <li className="header__mobile-only">
+              <Link to="/reservations" className="header__btn-filled header__btn-pill" onClick={() => setMenuOpen(false)}>
+                Reservar Mesa
+              </Link>
+            </li>
           </ul>
         </nav>
 
         <div className="header__actions">
-           <NavLink
-             to="/contact"
-             className={({ isActive }) =>
-               `header__contact-link${isActive ? ' header__nav-link--active' : ''}`
-             }
-             onClick={() => setMenuOpen(false)}
-           >
-             Contact
-           </NavLink>
-           <Link to="/reservations" className="header__reservations" onClick={() => setMenuOpen(false)}>
-             Reservations
+           <Link to="/reservations" className="header__btn-filled header__btn-pill" onClick={() => setMenuOpen(false)}>
+             Reservar
            </Link>
         </div>
 
         <button
           className={`header__hamburger ${menuOpen ? 'header__hamburger--open' : ''}`}
           onClick={() => setMenuOpen(prev => !prev)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
         >
           <span />
           <span />

@@ -2,21 +2,21 @@ import React from 'react'
 import '../../index.css'
 
 const mainEvent = {
-  time: 'Friday · 22:00',
-  title: 'Velvet Symphony: The Grand Reopening',
-  image: 'linear-gradient(160deg, #0d0d0d 0%, #1a1008 30%, #0f0d08 60%, #080808 100%)',
+  time: 'Viernes · 22:00 hs',
+  title: 'Noche Inaugural: El Legado de los Grandes',
+  image: '/HeroSeccion.png',
   performers: [
-    { role: 'Resident', name: 'Julian Vance' },
-    { role: 'Guest', name: 'Elena Rose' },
+    { role: 'Residente', name: 'DJ Marcos' },
+    { role: 'Invitado', name: 'DJ Paul G' },
   ],
 }
 
 const sideEvent = {
-  time: 'Saturday · 23:00',
-  title: 'Deep Theory Sessions',
-  desc: 'Minimalist techno and architectural soundscapes.',
-  featuring: 'Architect of Sound',
-  image: 'radial-gradient(ellipse at 60% 30%, #2a0a00 0%, #1a0500 40%, #0a0800 80%, #060606 100%)',
+  time: 'Sábado · 23:00 hs',
+  title: 'Terraza House Sessions',
+  desc: 'Música house seleccionada, ambiente al aire libre y coctelería premium.',
+  featuring: 'DJ Invitado de Córdoba',
+  image: '/interior.jpg',
 }
 
 const FeaturedEvents = () => {
@@ -28,7 +28,7 @@ const FeaturedEvents = () => {
           {/* Left main card */}
           <article className="feat-card feat-card--main">
             <div className="feat-card__image">
-              <div className="feat-card__img-bg" style={{ background: mainEvent.image }} />
+              <div className="feat-card__img-bg" style={{ backgroundImage: `url(${mainEvent.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
               <div className="feat-card__img-overlay" />
             </div>
             <div className="feat-card__body">
@@ -37,8 +37,8 @@ const FeaturedEvents = () => {
               <div className="feat-card__performers">
                 {mainEvent.performers.map(p => (
                   <div key={p.role} className="feat-card__performer">
-                    <p className="feat-card__performer-role">{p.role}</p>
-                    <p className="feat-card__performer-name">{p.name}</p>
+                     <p className="feat-card__performer-role">{p.role}</p>
+                     <p className="feat-card__performer-name">{p.name}</p>
                   </div>
                 ))}
               </div>
@@ -48,14 +48,14 @@ const FeaturedEvents = () => {
           {/* Right side card */}
           <article className="feat-card feat-card--side">
             <div className="feat-card__image">
-              <div className="feat-card__img-bg" style={{ background: sideEvent.image }} />
+              <div className="feat-card__img-bg" style={{ backgroundImage: `url(${sideEvent.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
               <div className="feat-card__img-overlay" />
             </div>
             <div className="feat-card__body">
               <p className="feat-card__time">{sideEvent.time}</p>
               <h2 className="feat-card__title">{sideEvent.title}</h2>
               <p className="feat-card__desc">{sideEvent.desc}</p>
-              <p className="feat-card__featuring-label">Featuring</p>
+              <p className="feat-card__featuring-label">Invitado Especial</p>
               <p className="feat-card__featuring-name">{sideEvent.featuring}</p>
             </div>
           </article>

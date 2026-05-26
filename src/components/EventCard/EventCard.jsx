@@ -1,14 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../../index.css'
 
 const EventCard = ({ event }) => {
   const { title, titleEm, date, time, djs, category, tags, image, size } = event
 
+  const isGradient = image && image.includes('gradient')
+  const backgroundStyle = isGradient 
+    ? { background: image } 
+    : { backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+
   if (size === 'small') {
     return (
       <article className="event-card event-card--small">
         <div className="event-card__thumb">
-          <div className="event-card__thumb-bg" style={{ background: image }} />
+          <div className="event-card__thumb-bg" style={backgroundStyle} />
         </div>
         <div className="event-card__small-body">
           {category && <span className="event-card__category">{category}</span>}
@@ -16,11 +22,11 @@ const EventCard = ({ event }) => {
           {date && <p className="event-card__date-sm">{date}</p>}
           {time && <p className="event-card__time-sm">{time}</p>}
         </div>
-        <button className="event-card__arrow" aria-label="View event">
+        <Link to="/reservations" className="event-card__arrow" aria-label="Reservar lugar">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </button>
+        </Link>
       </article>
     )
   }
@@ -28,7 +34,7 @@ const EventCard = ({ event }) => {
   return (
     <article className="event-card event-card--large">
       <div className="event-card__image">
-        <div className="event-card__image-bg" style={{ background: image }} />
+        <div className="event-card__image-bg" style={backgroundStyle} />
         <div className="event-card__image-overlay" />
         {tags && tags.map((tag) => (
           <span key={tag.label} className={`event-card__tag event-card__tag--${tag.type}`}>
@@ -62,7 +68,7 @@ const EventCard = ({ event }) => {
           )}
         </div>
         {djs && <p className="event-card__djs">{djs}</p>}
-        <a href="#contact" className="event-card__reserve">Reserve Table</a>
+        <Link to="/reservations" className="event-card__reserve">Reservar Mesa</Link>
       </div>
     </article>
   )

@@ -210,19 +210,20 @@
 
 .vip__map-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 18px;
   padding: 24px;
   min-height: 160px;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .vip__map-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top left, rgba(201, 168, 76, 0.18), transparent 40%);
+  background: radial-gradient(circle at top left, rgba(201, 168, 76, 0.12), transparent 40%);
   opacity: 0.75;
 }
 
@@ -249,6 +250,38 @@
   margin-bottom: 14px;
 }
 
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  transform: translateY(-4px) scale(1.005);
+  border-color: rgba(201, 168, 76, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.vip__map-card.selected {
+  border-color: var(--gold) !important;
+  background: rgba(201, 168, 76, 0.08) !important;
+  box-shadow: 0 12px 35px rgba(201, 168, 76, 0.15), inset 0 0 15px rgba(201, 168, 76, 0.08) !important;
+}
+
+.selection-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 30px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+  z-index: 2;
+}
+
 .vip__table-list {
   display: grid;
   gap: 14px;
@@ -261,15 +294,21 @@
   gap: 20px;
   padding: 20px 24px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vip__table-item.selected-row {
+  border-color: var(--gold) !important;
+  background: rgba(201, 168, 76, 0.05) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .vip__table-item:hover {
   transform: translateY(-2px);
-  border-color: rgba(201, 168, 76, 0.24);
-  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.16);
+  border-color: rgba(201, 168, 76, 0.3);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
 .vip__table-item h4 {
