@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../../index.css'
 import EventCard from '../EventCard/EventCard'
 
@@ -6,39 +7,39 @@ const eventsData = [
   {
     id: 1,
     title: 'SÁBADO ÚNICO ft. International Guest',
-    date: 'Sábado 2 Mayo',
+    date: 'Sábado 30 Mayo',
     time: '11:30 PM - Late',
     tags: [
       { label: 'Main Room', type: 'room' },
-      { label: 'Sold Out', type: 'sold' },
+      { label: 'Agotado', type: 'sold' },
     ],
-    image: 'linear-gradient(135deg, #1a0a0a 0%, #2d0a0a 30%, #1a1a2e 60%, #0a0a0a 100%)',
+    image: '/interior.jpg',
     size: 'large',
   },
   {
     id: 2,
     title: 'Jäger Fest:',
-    titleEm: 'Keep It Real',
-    date: 'Sábado 9 Mayo',
-    djs: 'Resident DJs: Marcos & Paul G',
+    titleEm: 'Noches Exclusivas',
+    date: 'Sábado 6 Junio',
+    djs: 'DJs Residentes: Marcos & Paul G',
     tags: [{ label: 'VIP Only', type: 'vip' }],
-    image: 'linear-gradient(135deg, #1a1200 0%, #2d2000 30%, #1a0f00 60%, #0d0800 100%)',
+    image: '/img3.jpg',
     size: 'large',
   },
   {
     id: 3,
-    title: 'Viernes 17 Abril',
-    category: 'Live Performance',
+    title: 'Viernes 29 Mayo',
+    category: 'Show en Vivo',
     time: '11:00 PM Hasta 1:30 AM',
-    image: 'radial-gradient(circle at center, #8b0000 0%, #3d0000 50%, #1a0000 100%)',
+    image: '/img1.png',
     size: 'small',
   },
   {
     id: 4,
-    title: 'Keep Walking to Mr. Johns',
-    category: 'Special Event',
-    date: 'Sábado 18 Abril',
-    image: 'linear-gradient(135deg, #1a1500 0%, #2a2200 50%, #0d0d00 100%)',
+    title: 'Keep Walking con Johnnie Walker',
+    category: 'Evento Especial',
+    date: 'Sábado 13 Junio',
+    image: '/frente2.jpg',
     size: 'small',
   },
 ]
@@ -51,19 +52,18 @@ const Features = () => {
         <div className="features__header">
           <div className="features__header-left">
             <h2 className="features__title">
-              Upcoming <em className="features__title-em">Highlights</em>
+              Próximos <em className="features__title-em">Eventos</em>
             </h2>
             <p className="features__subtitle">
-              Curated events designed for the trend-setting elite. Secure your<br />
-              access to the city's most exclusive nights.
+              Experiencias curadas y exclusivas pensadas para nuestro público premium. Asegurá tu lugar en las mejores noches de la provincia.
             </p>
           </div>
-          <a href="/events" className="features__view-all">
-            View All Events
+          <Link to="/events" className="features__view-all">
+            Ver Todos los Eventos
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
               <path d="M1 6h14M9 1l5 5-5 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         <div className="features__grid">

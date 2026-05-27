@@ -1,19 +1,19 @@
 import React from 'react'
 import '../../index.css'
-import Header from '../../components/Header/Header'
 import Hero from '../../components/Hero/Hero'
+import Gallery from '../../components/Gallery/Gallery'
 import Features from '../../components/Features/Features'
-import Footer from '../../components/Footer/Footer'
+import VIPExperience from '../../components/VIPExperience/VIPExperience'
 
 const Home = () => {
   return (
     <div className="home-layout">
-      <Header />
       <main>
         <Hero />
+        <Gallery />
         <Features />
+        <VIPExperience />
       </main>
-      <Footer />
     </div>
   )
 }
