@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../index.css'
+import './EventCard.css'
 
 const EventCard = ({ event }) => {
   const { title, titleEm, date, time, djs, category, tags, image, size } = event
