@@ -12,17 +12,16 @@ const Hero = () => {
       <div className="hero__content">
         <div className="hero__badge">
           <span className="hero__badge-dot" />
-          Experiencia Ultra-Premium
+          Experiencia Unica en Tucumán
         </div>
 
         <h1 className="hero__title">
           Mr. John's <span className="hero__amp">&amp;</span> Warhol<br />
-          <em className="hero__title-em">El referente de la noche</em>
+          <em className="hero__title-em"></em>
         </h1>
 
         <p className="hero__subtitle">
           Descubrí la experiencia nocturna más exclusiva de la provincia.<br />
-          Un espacio diseñado para mayores, donde el buen gusto, los clásicos de siempre y una barra premium se encuentran.
         </p>
 
         <div className="hero__actions">
@@ -30,7 +29,7 @@ const Hero = () => {
             Reservá tu Mesa
           </Link>
           <Link to="/events" className="hero__btn hero__btn--secondary">
-            Ver Eventos
+            Ver Eventos Disponibles
           </Link>
         </div>
       </div>

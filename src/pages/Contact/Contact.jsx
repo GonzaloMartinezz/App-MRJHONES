@@ -50,15 +50,22 @@ const Contact = () => {
             <h2>Reservas Selectas</h2>
             <p>Contactanos de forma directa para asignación de mesas premium, servicio de botellas personalizadas y accesos a listas exclusivas.</p>
             <div className="contact-card__meta">
-              <div>
+              <div className="contact-card__meta-item">
                 <strong>Ubicación</strong>
                 <p>Av. Aconquija 1702, Yerba Buena, Tucumán</p>
               </div>
-              <div>
+              <div className="contact-card__meta-item">
+                <strong>Horarios &amp; Días</strong>
+                <p className="contact-card__schedule">
+                  <span>Viernes y Sábados:</span> 11:30 PM - 06:00 AM<br />
+                  <span>Vísperas de Feriados:</span> 11:30 PM - 06:00 AM
+                </p>
+              </div>
+              <div className="contact-card__meta-item">
                 <strong>Teléfono</strong>
                 <p>+54 9 381 123-4567</p>
               </div>
-              <div>
+              <div className="contact-card__meta-item">
                 <strong>Email</strong>
                 <p>conserjeria@mrjohns.com</p>
               </div>
@@ -97,6 +104,38 @@ const Contact = () => {
             </label>
             <button type="submit" className="contact-form__submit">Enviar por WhatsApp</button>
           </form>
+        </div>
+
+        {/* Interactive Styled Google Map Section */}
+        <div className="contact-page__map-section">
+          <div className="contact-page__map-header">
+            <span className="contact-page__map-tag">Ubicación</span>
+            <h2 className="contact-page__map-title">Cómo llegar al Templo</h2>
+          </div>
+          <div className="contact-page__map-container glass-card">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.106098254714!2d-65.2917537!3d-26.8190772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d3ad7ff3303%3A0x6b4ef84c7e6c381c!2sAv.%20Aconquija%201702%2C%20Yerba+Buena%2C%20Tucum%C3%A1n!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+              width="100%" 
+              height="450" 
+              style={{ border: 0 }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ubicación de Mr. John's & Warhol"
+            ></iframe>
+          </div>
+        </div>
+
+        {/* Luxury Brands Sponsor Cloud Section */}
+        <div className="contact-page__sponsors-section">
+          <h3 className="contact-page__sponsors-title">Sponsors Oficiales del Templo</h3>
+          <div className="sponsors-grid">
+            {['Boucheron', 'Steinway', 'Rolex', 'Dom Pérignon', 'Vogue'].map(brand => (
+              <div key={brand} className="sponsor-item">
+                {brand}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
