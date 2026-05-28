@@ -83,19 +83,19 @@ const ReservationModal = ({ open, onClose }) => {
 
         {/* Steps Indicators */}
         <div className="reservation-modal__steps-indicator">
-          <div className={`step-indicator-item ${step >= 1 ? 'active' : ''}`} onClick={() => setStep(1)} style={{ cursor: 'pointer' }}>
+          <div className={`step-indicator-item ${step === 1 ? 'current' : ''} ${step >= 1 ? 'active' : ''}`} onClick={() => setStep(1)} style={{ cursor: 'pointer' }}>
             <span className="step-number">1</span>
             <span className="step-label">Sector</span>
           </div>
           <div className={`step-indicator-line ${step >= 2 ? 'active' : ''}`} />
-          <div className={`step-indicator-item ${step >= 2 ? 'active' : ''}`} onClick={() => { if(resDate && resTime) setStep(2) }} style={{ cursor: resDate && resTime ? 'pointer' : 'default' }}>
+          <div className={`step-indicator-item ${step === 2 ? 'current' : ''} ${step >= 2 ? 'active' : ''}`} onClick={() => { if(resDate && resTime) setStep(2) }} style={{ cursor: resDate && resTime ? 'pointer' : 'default' }}>
             <span className="step-number">2</span>
-            <span className="step-label">Fecha &amp; Grupo</span>
+            <span className="step-label">Fecha &amp; Cantidad de Gente</span>
           </div>
           <div className={`step-indicator-line ${step >= 3 ? 'active' : ''}`} />
-          <div className={`step-indicator-item ${step >= 3 ? 'active' : ''}`} onClick={() => { if(resDate && resTime) setStep(3) }} style={{ cursor: resDate && resTime ? 'pointer' : 'default' }}>
+          <div className={`step-indicator-item ${step === 3 ? 'current' : ''} ${step >= 3 ? 'active' : ''}`} onClick={() => { if(resDate && resTime) setStep(3) }} style={{ cursor: resDate && resTime ? 'pointer' : 'default' }}>
             <span className="step-number">3</span>
-            <span className="step-label">Coctelería</span>
+            <span className="step-label">Coctelería &amp; Especiales</span>
           </div>
         </div>
 
