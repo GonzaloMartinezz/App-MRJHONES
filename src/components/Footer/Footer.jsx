@@ -17,7 +17,7 @@ const Footer = () => {
                   MJ
                 </text>
               </svg>
-              <span className="footer__logo-text">MR JHONES</span>
+              <span className="footer__logo-text">MR JHONES </span>
             </div>
             <p className="footer__tagline">
               El referente de la noche y la coctelería premium.<br />
@@ -27,7 +27,7 @@ const Footer = () => {
 
           <div className="footer__grid-cols">
             <div className="footer__col">
-              <h4>Navegación</h4>
+              <h4 >Navegación</h4>
               <nav className="footer__links-col">
                 <Link to="/" className="footer__link">Inicio</Link>
                 <Link to="/events" className="footer__link">Eventos</Link>
